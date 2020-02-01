@@ -1,0 +1,13 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>退会</h1>
+    <form method="post">
+      {% csrf_token %}
+      <p>あなたのアカウント「@{{ user.username }}」を本当に削除してよろしいですか？</p>
+      <button type="submit" class="btn btn-danger">削除</button>
+      <a href="{% url 'app:users_detail' user.pk %}"class="btn btn-primary">キャンセル</a>
+    </form>
+</div>
+{% endblock %}
