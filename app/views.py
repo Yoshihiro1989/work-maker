@@ -3,7 +3,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.views.generic import DetailView,UpdateView,DeleteView,CreateView
+from django.views.generic import DetailView,UpdateView,DeleteView,CreateView,ListView
 from .form import UserForm,ListForm
 from .mixins import OnlyYouMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -65,3 +65,11 @@ class ListCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+class ListListView(LoginRequiredMixin, ListView):
+    model = List
+    template_name = "app/lists/list.html"
+
+class ListDetailView(LoginRequiredMixin, DetailView):
+    model = List
+    template_name = "app/lists/detail.html"

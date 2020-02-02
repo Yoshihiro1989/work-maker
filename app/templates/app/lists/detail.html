@@ -1,0 +1,13 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>リスト詳細</h1>
+  <dl class="row">
+    <dt class="col-sm-3">タイトル</dt>
+    <dd class="col-sm-9">{{ list.title }}</dd>
+    <dt class="col-sm-3">ユーザー名</dt>
+    <dd class="col-sm-9">{{ list.user.username }}</dd>
+  </dl>
+</div>
+{% endblock %}
